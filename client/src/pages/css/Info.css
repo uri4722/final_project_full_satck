@@ -1,0 +1,40 @@
+.InfoDiv {
+    height: fit-content;
+    width: fit-content;
+    margin: auto;
+    margin-top: 10vw;
+    background-color: #f0f0f0;
+    padding: 40px;
+}
+
+.InfoDiv ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 20;
+}
+
+.InfoDiv h2 {
+    font-size: 2em;
+    margin-bottom: 1.5em;
+}
+
+.InfoDiv li {
+    margin-bottom: 1em;
+}
+
+.InfoDiv .infoTitle {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.InfoDiv button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    margin-left: 1em;
+}
+
+button:hover {
+    text-decoration: underline;
+}

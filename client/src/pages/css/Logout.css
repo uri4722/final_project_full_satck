@@ -1,0 +1,17 @@
+body {
+    background-color: #007bff;
+}
+
+.LogoutDiv {
+    background-color: #e9e4c7b4;
+    margin: auto;
+    margin-top: 30vh;
+    width: 40%;
+    height: 10vh;
+    width: fit-content;
+    height: fit-content;
+    padding: 100px;
+    color: black;
+    
+}
+

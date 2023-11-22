@@ -1,0 +1,57 @@
+.loginDiv {
+    width: 80%;
+    margin: 2em auto;
+    padding: 2em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+.loginDiv form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginDiv h2 {
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+.loginDiv .message {
+    margin-bottom: 1em;
+}
+
+.loginDiv label {
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+    text-align: left;
+}
+
+.loginDiv input[type="text"],
+.loginDiv input[type="password"],
+.loginDiv input[type="checkbox"] {
+    width: 100%;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.loginDiv button[type="submit"] {
+    padding: 0.5em 1em;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    background-color: #008CBA;
+    color: #fff;
+    cursor: pointer;
+}
+
+.loginDiv button[type="submit"]:hover {
+    background-color: #005E80;
+}
