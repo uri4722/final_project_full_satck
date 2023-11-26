@@ -1,11 +1,13 @@
-const mysql = require('mysql2/promise');
 require('dotenv').config();
 
-const pool = mysql.createPool({
-    host: process.env.host,
-    user: process.env.user,
-    database: process.env.database,
-    password: process.env.password,
-})
+const express = require('express');
+const app = express();
+const router = require('./routers/routes.js')
 
-g
+app.use(express.json());
+app.use("/", router);
+
+
+
+const PORT = process.env.PORT
+app.listen(PORT, () => console.log("listen to port" + PORT))
