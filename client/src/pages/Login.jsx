@@ -28,7 +28,7 @@ function Login(props) {
         if (userLogin === null) { return }
 
         if (userLogin) {
-
+            console.log(userLogin);
             Cookies.set(logInputs)
             logInputs.rememberMe ?
                 localStorage.setItem("user", JSON.stringify(userLogin)) :

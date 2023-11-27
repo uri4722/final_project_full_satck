@@ -18,7 +18,7 @@ export async function fetchDataPost(sendData, URL, body, setMessage) {
         const response = await axios.post(URL, body);
         sendData(response.data)
     } catch (error) {
-        // setMessage()
+        setMessage({ body: error.response.data, type: "failed" })
         console.error(error);
     }
 
