@@ -1,5 +1,8 @@
 const express = require('express');
 const login = require('./function/login');
+const getPosts = require('./function/getPosts');
+const getTodos = require('./function/getTodos');
+const getComments = require('./function/getComments');
 const router = express.Router();
 
 
@@ -7,18 +10,44 @@ const router = express.Router();
 router.post('/login', async (req, res) => {
     const { userName, password } = req.body;
     try {
-        const user = await login(userName, password)
+        const user = await login(userName, password);
         res.status(200).json(user);
     } catch (error) {
         res.status(401).send(error);
     }
-    res.end()
 })
 
 router.get('/posts/userId=:userId', async (req, res) => {
     const { userId } = req.params;
-    console.log(userId);
-    res.end()
+    try {
+        const posts = await getPosts(userId);
+        res.status(200).json(posts);
+    } catch (error) {
+        console.log(error);
+        res.status(401).send(error);
+    }
+})
+
+router.get('/todos/userId=:userId', async (req, res) => {
+    const { userId } = req.params;
+    try {
+        const todos = await getTodos(userId);
+        res.status(200).json(todos);
+    } catch (error) {
+        console.log(error);
+        res.status(401).send(error);
+    }
+})
+
+router.get('/comments/postId=:postId', async (req, res) => {
+    const { postId } = req.params;
+    try {
+        const comments = await getComments(postId);
+        res.status(200).json(comments);
+    } catch (error) {
+        console.log(error);
+        res.status(401).send(error);
+    }
 })
 
 module.exports = router;

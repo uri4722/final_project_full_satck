@@ -30,7 +30,7 @@ async function search(table, searchKey, userSearch, lookFor) {
     const sql = `SELECT ${lookFor ? lookFor : "*"} FROM ${table} 
     WHERE ${searchKey} = ?`;
 
-    const [[res]] = await pool.query(sql, [userSearch])
+    const [res] = await pool.query(sql, [userSearch])
     return res;
 }
 // async function userAuthentication(pass, userNameOrEmail) {
@@ -53,7 +53,7 @@ async function search(table, searchKey, userSearch, lookFor) {
 // }
 
 // async function test() {
-//     // console.log(await search('users', 'user_name', 'uri1'));
+//     console.log(await search('posts', 'user_id', 4));
 //     try {
 //         // await userAuthentication("1234", "uri")
 //     } catch (error) {

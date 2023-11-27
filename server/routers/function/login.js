@@ -12,16 +12,5 @@ async function login(userName, password) {
     }
 }
 
-// login("uri", 1234)
-// async function test() {
 
-//     // console.log(await search('users', 'user_name', 'uri1'));
-//     try {
-//         // console.log(await login("uri1", '1234'));
-//         // await userAuthentication("1234", "uri")
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }
-// test()
 module.exports = login;
