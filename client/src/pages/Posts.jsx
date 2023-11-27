@@ -4,17 +4,16 @@ import usePermission from "../function/usePermission"
 import { UserContext } from "../component/MyWeb"
 import DisplayPosts from "../component/DisplayPosts"
 import "./css/Posts.css"
-import UserNav from "../component/UserNav"
-import { NavLink } from "react-router-dom"
 import HeaderNav from "../component/Hader"
+const BASEURL = 'http://localhost:7500/';
 
 
 function Posts() {
     usePermission()
-    const { id } = useContext(UserContext)
-
+    const { user_id } = useContext(UserContext)
+    console.log(user_id);
     const [posts, setPosts] = useState()
-    const URL = ` https://jsonplaceholder.typicode.com/posts?userId=${id}`
+    const URL = `${BASEURL}posts/userId=${user_id}`
     useEffect(() => {
         fetchDataGet(setPosts, URL)
     }, [URL])
