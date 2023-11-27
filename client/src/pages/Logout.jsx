@@ -8,14 +8,13 @@ function Logout() {
     usePermission()
     const navigate = useNavigate();
     const user = useContext(UserContext)
-
     localStorage.clear();
 
-    setTimeout(() => navigate("/Login"), 3500)
+    setTimeout(() => navigate("/Login"), 3500);
 
 
     return <div className="LogoutDiv">
-        <h1>Hi {user && user.username}</h1>
+        <h1>Hi {user && user.user_name}</h1>
 
         <p>
             I noticed that you've disconnected from the website.
