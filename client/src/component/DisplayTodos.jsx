@@ -4,6 +4,7 @@ import toggleDisplay from "../function/toggleDisplay";
 
 function DisplayTodos(props) {
     const { todo } = props
+    console.log(todo);
     const { title, completed } = todo
     const [isCompleted, setIsCompleted] = useState(completed)
 

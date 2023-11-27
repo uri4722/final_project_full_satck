@@ -31,6 +31,7 @@ router.get('/posts/userId=:userId', async (req, res) => {
 
 router.get('/todos/userId=:userId', async (req, res) => {
     const { userId } = req.params;
+    console.log(userId);
     try {
         const todos = await getTodos(userId);
         res.status(200).json(todos);

@@ -11,7 +11,6 @@ const BASEURL = 'http://localhost:7500/';
 function Posts() {
     usePermission()
     const { user_id } = useContext(UserContext)
-    console.log(user_id);
     const [posts, setPosts] = useState()
     const URL = `${BASEURL}posts/userId=${user_id}`
     useEffect(() => {
@@ -23,7 +22,7 @@ function Posts() {
     return <div className="postsDiv">
         <HeaderNav />
         <h1>My posts</h1>
-        {posts && posts.map((post) => <DisplayPosts post={post} key={post.id} />)}
+        {posts && posts.map((post) => <DisplayPosts post={post} key={post.post_id} />)}
     </div>
 }
 

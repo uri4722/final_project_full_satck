@@ -6,17 +6,18 @@ import DisplayTodos from "../component/DisplayTodos"
 import OrderTodos from "../component/OrderTodos"
 import "./css/Todos.css"
 import HeaderNav from "../component/Hader"
+const BASEURL = 'http://localhost:7500/';
 
 
 function Todo() {
     usePermission()
-    const { id } = useContext(UserContext)
+    const { user_id } = useContext(UserContext)
     const [todos, setTodos] = useState()
     const [orderBy, setOrderBy] = useState("Oldest")
-    const URL = ` https://jsonplaceholder.typicode.com/todos?userId=${id}`
+    const URL = `${BASEURL}todos/userId=${user_id}`
     useEffect(() => {
-        id && fetchDataGet(setTodos, URL)
-    }, [URL, id])
+        user_id && fetchDataGet(setTodos, URL)
+    }, [URL, user_id])
 
     function makeOrder(order) {
         if (!todos) return
