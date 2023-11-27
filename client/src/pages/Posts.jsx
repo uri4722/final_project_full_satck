@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react"
-import fetchData from "../function/fetchData"
+import fetchDataGet from "../function/fetchData"
 import usePermission from "../function/usePermission"
 import { UserContext } from "../component/MyWeb"
 import DisplayPosts from "../component/DisplayPosts"
@@ -16,7 +16,7 @@ function Posts() {
     const [posts, setPosts] = useState()
     const URL = ` https://jsonplaceholder.typicode.com/posts?userId=${id}`
     useEffect(() => {
-        fetchData(setPosts, URL)
+        fetchDataGet(setPosts, URL)
     }, [URL])
 
 

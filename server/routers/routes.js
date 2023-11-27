@@ -6,13 +6,14 @@ const getComments = require('./function/getComments');
 const router = express.Router();
 
 
-
 router.post('/login', async (req, res) => {
-    const { userName, password } = req.body;
+    const { name, password } = req.body;
+    console.log(name, password);
     try {
-        const user = await login(userName, password);
+        const user = await login(name, password);
         res.status(200).json(user);
     } catch (error) {
+        console.log(error);
         res.status(401).send(error);
     }
 })

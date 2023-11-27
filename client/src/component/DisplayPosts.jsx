@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import toggleDisplay from "../function/toggleDisplay";
-import fetchData from "../function/fetchData";
+import fetchDataGet from "../function/fetchData";
 
 export default function DisplayPosts(props) {
     const [displayPost, setDisplayPost] = useState(false)
@@ -11,7 +11,7 @@ export default function DisplayPosts(props) {
     const [comments, setComments] = useState()
     const URL = `https://jsonplaceholder.typicode.com/comments?postId=${post.id}`
     useEffect(() => {
-        displayComments && fetchData(setComments, URL)
+        displayComments && fetchDataGet(setComments, URL)
     }, [displayComments, URL])
 
     return <div className="postDiv" >

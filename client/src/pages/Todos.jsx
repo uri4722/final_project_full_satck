@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import usePermission from "../function/usePermission"
 import { UserContext } from "../component/MyWeb"
-import fetchData from "../function/fetchData"
+import fetchDataGet from "../function/fetchData"
 import DisplayTodos from "../component/DisplayTodos"
 import OrderTodos from "../component/OrderTodos"
 import "./css/Todos.css"
@@ -15,7 +15,7 @@ function Todo() {
     const [orderBy, setOrderBy] = useState("Oldest")
     const URL = ` https://jsonplaceholder.typicode.com/todos?userId=${id}`
     useEffect(() => {
-        id && fetchData(setTodos, URL)
+        id && fetchDataGet(setTodos, URL)
     }, [URL, id])
 
     function makeOrder(order) {

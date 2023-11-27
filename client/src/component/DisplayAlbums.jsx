@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import toggleDisplay from "../function/toggleDisplay"
-import fetchData from "../function/fetchData"
+import fetchDataGet from "../function/fetchData"
 import albumsImg from "../imgs/albumsImg.jpg"
 import DisplayPhotos from "./DisplayPhotos"
 
@@ -11,7 +11,7 @@ function DisplayAlbums(props) {
 
     const URL = `https://jsonplaceholder.typicode.com/photos?albumId=${id}`
     useEffect(() => {
-        displayPhotos && fetchData(setPhotos, URL)
+        displayPhotos && fetchDataGet(setPhotos, URL)
     }, [displayPhotos, URL])
 
     return <div className="albumDiv">

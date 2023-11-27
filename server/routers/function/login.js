@@ -1,8 +1,8 @@
 const { search } = require("../../basicTableFunc");
 
 
-async function login(userName, password) {
-    const user = await search('users', 'user_name', userName);
+async function login(name, password) {
+    const [user] = await search('users', 'user_name', name);
     if (user !== undefined) {
         if (user.password === password) {
             return user

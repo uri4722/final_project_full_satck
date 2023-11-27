@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import HeaderNav from "../component/Hader"
 import usePermission from "../function/usePermission"
 import { UserContext } from "../component/MyWeb"
-import fetchData from "../function/fetchData"
+import fetchDataGet from "../function/fetchData"
 import DisplayAlbums from "../component/DisplayAlbums"
 import "./css/Albums.css"
 
@@ -15,7 +15,7 @@ function Albums() {
 
     const URL = `  https://jsonplaceholder.typicode.com/albums?userId=${id}`
     useEffect(() => {
-        id && fetchData(setAlbums, URL)
+        id && fetchDataGet(setAlbums, URL)
     }, [URL, id])
 
 
