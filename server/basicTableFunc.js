@@ -52,14 +52,14 @@ async function search(table, searchKey, userSearch, lookFor) {
 
 // }
 
-async function test() {
-    // console.log(await search('users', 'user_name', 'uri1'));
-    try {
-        // await userAuthentication("1234", "uri")
-    } catch (error) {
-        console.log(error);
-    }
-}
-test()
+// async function test() {
+//     // console.log(await search('users', 'user_name', 'uri1'));
+//     try {
+//         // await userAuthentication("1234", "uri")
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
+// test()
 
 module.exports = { addRow, search }

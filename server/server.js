@@ -8,6 +8,5 @@ app.use(express.json());
 app.use("/", router);
 
 
-
 const PORT = process.env.PORT
 app.listen(PORT, () => console.log("listen to port" + PORT))
