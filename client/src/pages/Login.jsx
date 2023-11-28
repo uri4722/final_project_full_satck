@@ -29,6 +29,7 @@ function Login(props) {
 
         if (userLogin) {
             console.log(userLogin);
+
             Cookies.set(logInputs)
             logInputs.rememberMe ?
                 localStorage.setItem("user", JSON.stringify(userLogin)) :
@@ -40,7 +41,6 @@ function Login(props) {
             }, 1600)
         }
         setLogInputs({ name: "", password: "", rememberMe: false })
-
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [userLogin])

@@ -11,12 +11,12 @@ function Albums() {
     usePermission()
     const [albums, setAlbums] = useState()
 
-    const { id } = useContext(UserContext)
+    const { user_id } = useContext(UserContext)
 
-    const URL = `  https://jsonplaceholder.typicode.com/albums?userId=${id}`
+    const URL = `  https://jsonplaceholder.typicode.com/albums?userId=${user_id}`
     useEffect(() => {
-        id && fetchDataGet(setAlbums, URL)
-    }, [URL, id])
+        user_id && fetchDataGet(setAlbums, URL)
+    }, [URL, user_id])
 
 
     return <div className="AlbumsDiv">

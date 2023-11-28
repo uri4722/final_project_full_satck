@@ -18,12 +18,12 @@ async function addRow(table, columns, values) {
     const { insertId } = res;
 
     // return the new objact without calling the server
-    const user = {};
-    user.id = insertId;
+    const row = {};
+    row.id = insertId;
     for (let i = 0; i < columns.length; i++) {
-        user[columns[i]] = values[i];
+        row[columns[i]] = values[i];
     }
-    return user;
+    return row;
 }
 
 async function search(table, searchKey, userSearch, lookFor) {

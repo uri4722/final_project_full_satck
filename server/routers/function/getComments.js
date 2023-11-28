@@ -1,10 +1,10 @@
 const { search } = require("../../basicTableFunc");
 
 async function getComments(postId) {
-    const posts = await search('comments', 'post_id', postId);
+    const comments = await search('comments', 'post_id', postId);
 
-    if (posts.length > 0) {
-        return posts;
+    if (comments.length > 0) {
+        return comments;
     } else {
         throw 'There are no comments for this post'
     }

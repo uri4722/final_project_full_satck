@@ -25,10 +25,10 @@ function Todo() {
         let compareFunction;
         switch (order) {
             case "Oldest":
-                compareFunction = (a, b) => a.id - b.id;
+                compareFunction = (a, b) => a.date - b.date;
                 break;
             case "Newest":
-                compareFunction = (a, b) => b.id - a.id;
+                compareFunction = (a, b) => b.date - a.date;
                 break;
             case "A-Z":
                 compareFunction = (a, b) => a.title.localeCompare(b.title);
@@ -66,7 +66,7 @@ function Todo() {
         {todos && todos.map(todo => {
             return <DisplayTodos
                 todo={{ ...todo }}
-                key={todo.id}
+                key={todo.todo_id}
             />
 
         })}
