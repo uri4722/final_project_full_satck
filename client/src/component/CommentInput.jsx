@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import './css/CommentInput.css';
 import { fetchDataPost } from '../function/fetchData';
 import toggleDisplay from '../function/toggleDisplay';
@@ -9,7 +9,7 @@ export default function CommentInput({ user_name, email, post_id, setDisplayResI
 
     const pushComments = (data) => {
         data.comments_id = data.id;
-        
+
         setComments(prev => {
             const newComments = [...prev, data];
             return newComments;
