@@ -14,7 +14,7 @@ export default function DisplayPosts(props) {
 
     const { post, user_name, email } = props
 
-    const [comments, setComments] = useState()
+    const [comments, setComments] = useState([])
     const URL = `${BASEURL}comments/postId=${post.post_id}`
     useEffect(() => {
         displayComments && fetchDataGet(setComments, URL)
@@ -49,13 +49,14 @@ export default function DisplayPosts(props) {
             })}
 
 
-        {displayPost && <p className="toggle" onClick={() => toggleDisplay(setDisplayResInput)}>to respond</p>}
+        {displayPost && <p className="toggle" onClick={() => toggleDisplay(setDisplayResInput)}>to respond___</p>}
         {displayResInput &&
             <CommentInput
                 post_id={post.post_id}
                 user_name={user_name}
                 email={email}
                 setDisplayResInput={setDisplayResInput}
+                setComments={setComments}
             />}
     </div>
 

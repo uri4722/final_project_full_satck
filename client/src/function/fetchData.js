@@ -20,7 +20,10 @@ export async function fetchDataPost(sendData, URL, body, setMessage) {
         sendData(response.data)
         console.log(response.data);
     } catch (error) {
-        setMessage({ body: error.response.data, type: "failed" })
+        if (setMessage) {
+            setMessage({ body: error.response.data, type: "failed" })
+        }
+
         console.error(error);
     }
 

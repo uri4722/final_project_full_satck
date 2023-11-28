@@ -4,15 +4,17 @@ import { fetchDataPost } from '../function/fetchData';
 import toggleDisplay from '../function/toggleDisplay';
 const BASEURL = 'http://localhost:7500/';
 
-export default function CommentInput({ user_name, email, post_id, setDisplayResInput }, props) {
+export default function CommentInput({ user_name, email, post_id, setDisplayResInput, setComments }) {
     const [commentInput, setCommentInput] = useState("");
-    // const [errorMessage, setErrorMessage] = useState();
-    // const setComments = (data) => {
-    //     //  עוד לא מעודכן בחוץ כן משנה את הSQL 
-    //     // props.setComments(prev => {
-    //     //     return { ...prev, data }
-    //     // })
-    // }
+
+    const pushComments = (data) => {
+        data.comments_id = data.id;
+        
+        setComments(prev => {
+            const newComments = [...prev, data];
+            return newComments;
+        })
+    }
     const handleChange = ({ target }) => {
         const { value } = target
         setCommentInput(value)
@@ -20,7 +22,7 @@ export default function CommentInput({ user_name, email, post_id, setDisplayResI
     const handleSubmit = async (e) => {
         const body = { user_name: user_name, email: email, post_id: post_id, body: commentInput }
         e.preventDefault();
-        // fetchDataPost(setComments, `${BASEURL}comments/postId=${props.post_id}`, body, setErrorMessage)
+        fetchDataPost(pushComments, `${BASEURL}comments/postId=${post_id}`, body)
         setCommentInput("");
         toggleDisplay(setDisplayResInput)
     }

@@ -15,6 +15,9 @@ CREATE TABLE `comments`(
     `email` VARCHAR(255) NOT NULL,
     `body` VARCHAR(255) NOT NULL
 );
+ALTER TABLE `final_project`.`comments` 
+CHANGE COLUMN `comments_id` `comments_id` INT NOT NULL AUTO_INCREMENT ;
+
 ALTER TABLE
     `comments` ADD PRIMARY KEY(`comments_id`);
 CREATE TABLE `users`(
