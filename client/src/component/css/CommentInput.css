@@ -4,14 +4,14 @@
     margin-bottom: 20px;
   }
   
-  textarea {
+ .comment-input-container textarea {
     resize: none;
     height: 20px;
     padding: 10px;
     margin-bottom: 10px;
   }
   
-  button {
+ .comment-input-container button {
     background-color: #4c72af;
     color: white;
     border: none;
@@ -20,7 +20,6 @@
     border-radius: 4px;
   }
   
-  button:hover {
+ .comment-input-container button:hover {
     background-color: #45a049;
   }
-  

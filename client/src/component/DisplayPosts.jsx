@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import toggleDisplay from "../function/toggleDisplay";
 import fetchDataGet from "../function/fetchData";
+import DisplayComments from "./DisplayComments";
 import CommentInput from "./CommentInput";
 const BASEURL = 'http://localhost:7500/';
 
@@ -9,6 +10,7 @@ export default function DisplayPosts(props) {
     const [displayPost, setDisplayPost] = useState(false)
     const [displayComments, setDisplayComments] = useState(false)
     const [displayResInput, setDisplayResInput] = useState(false)
+
 
     const { post, user_name, email } = props
 
@@ -35,23 +37,26 @@ export default function DisplayPosts(props) {
                 {!displayComments ? ' For comments ⇩' : " Don't show comments ⇧"}
             </span>
         </p>}
-        {displayComments && comments && comments.map(comment => {
-            return <div className="commentDiv" key={comment.comments_id}>
-                <br />
-                <h3>{comment.name}</h3>
-                <h5>{comment.email}</h5>
-                <p>{comment.body}</p>
-                <p className="toggle" onClick={() => toggleDisplay(setDisplayResInput)}>to respond</p>
-                {displayResInput &&
-                    <CommentInput
-                        post_id={post.post_id}
-                        user_name={user_name}
-                        email={email}
-                        setDisplayResInput={setDisplayResInput}
-                        setComments={setComments} />}
-            </div>
+        {displayComments &&
+            comments && comments.map(comment => {
+                return <DisplayComments
+                    key={comment.comments_id}
+                    comment={comment}
+                />
 
-        })}
+
+
+            })}
+
+
+        {displayPost && <p className="toggle" onClick={() => toggleDisplay(setDisplayResInput)}>to respond</p>}
+        {displayResInput &&
+            <CommentInput
+                post_id={post.post_id}
+                user_name={user_name}
+                email={email}
+                setDisplayResInput={setDisplayResInput}
+            />}
     </div>
 
 }
