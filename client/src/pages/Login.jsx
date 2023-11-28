@@ -55,5 +55,8 @@ function Login(props) {
 
 export default Login
 
-// שמות של משתמש שקיימים
+// שמות של משתמשים שקיימים
+// ('John Doe', 'john@example.com', '555-1234', 'password123', 'john_doe'),
+// ('Jane Smith', 'jane@example.com', '555-5678', 'pass456', 'jane_smith'),
+// ('Bob Johnson', 'bob@example.com', NULL, 'bobpass', 'bob_johnson');
 // username: 'uri1' pass:1234
