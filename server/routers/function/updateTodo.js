@@ -1,13 +1,18 @@
 const { updateRaw } = require("../../basicTableFunc");
 
-async function updateTodo(todoId, keyChange, valueChange) {
-    console.log(todoId);
-    const answer = await updateRaw('todo', 'todo_Id', todoId, keyChange, valueChange);
+async function updateTodo(todoId, body) {
+    const { completed } = body;
 
-    if (answer.affectedRows) {
-        return "update successfully";
-    } else {
-        throw 'the update not sucsseded'
+    if (completed) {
+        const answer = await updateRaw('todo', 'todo_Id', todoId, "completed", completed);
+        console.log(answer);
+        if (answer.affectedRows) {
+            return "update successfully";
+        } else {
+            throw 'the update not sucsseded'
+        }
     }
+
+
 }
 module.exports = updateTodo;

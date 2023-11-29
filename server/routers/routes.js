@@ -68,26 +68,28 @@ router.post('/comments/postId=:postId', async (req, res) => {
 
 router.put('/todos/todoId=:todoId?', async (req, res) => {
     const { todoId } = req.params;
-    const { completed } = req.body;
+    console.log(todoId);
     try {
-        const answer = await updateTodo(todoId, "completed", completed);
+        const answer = await updateTodo(todoId, req.body);
+        res.status(200).send(answer);
+    } catch (error) {
+        console.log(error);
+        res.status(400).send(error);
+    }
+
+
+})
+
+router.delete('/comments/commentId=:commentId', async (req, res) => {
+    const { commentId } = req.params;
+    try {
+        const answer = await deleteComments(commentId);
         res.status(200).send(answer);
     } catch (error) {
         // console.log(error);
         res.status(400).send(error);
     }
 })
-
-// router.put('/comments/commentId=:commentId', async (req, res) => {
-//     const { commentId } = req.params;
-//     try {
-//         const answer = await deleteComments(commentId);
-//         res.status(200).send(answer);
-//     } catch (error) {
-//         // console.log(error);
-//         res.status(400).send(error);
-//     }
-// })
 
 module.exports = router;
 

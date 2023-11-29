@@ -37,4 +37,15 @@ export async function fetchDataDelete(URL) {
         console.log(error);
     }
 }
+
+export async function fetchDataPut(URL, body) {
+    try {
+        const response = await axios.put(URL, body);
+        console.log(response);
+        return response
+    } catch (error) {
+        console.error(error);
+    }
+
+}
 export default fetchDataGet
