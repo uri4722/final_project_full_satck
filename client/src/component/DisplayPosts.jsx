@@ -43,9 +43,6 @@ export default function DisplayPosts(props) {
                     key={comment.comments_id}
                     comment={comment}
                 />
-
-
-
             })}
 
 

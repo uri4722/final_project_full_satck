@@ -4,6 +4,7 @@ const getPosts = require('./function/getPosts');
 const getTodos = require('./function/getTodos');
 const getComments = require('./function/getComments');
 const setComments = require('./function/setComments');
+const deleteComments = require('./function/deleteComments');
 const router = express.Router();
 
 
@@ -60,6 +61,17 @@ router.post('/comments/postId=:postId', async (req, res) => {
         res.status(200).json(comment);
     } catch (error) {
         console.log(error);
+        res.status(400).send(error);
+    }
+})
+
+router.delete('/comments/commentId=:commentId', async (req, res) => {
+    const { commentId } = req.params;
+    try {
+        const answer = await deleteComments(commentId);
+        res.status(200).send(answer);
+    } catch (error) {
+        // console.log(error);
         res.status(400).send(error);
     }
 })

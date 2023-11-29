@@ -33,33 +33,22 @@ async function search(table, searchKey, userSearch, lookFor) {
     const [res] = await pool.query(sql, [userSearch])
     return res;
 }
-// async function userAuthentication(pass, userNameOrEmail) {
-//     const sql =
-//         `  SELECT password
-//              FROM users
-//              WHERE  user_name = ? OR email = ? `;
-//     const [[res]] = await pool.query(sql, [userNameOrEmail, userNameOrEmail]);
-//     if (res) {
-//         const { password } = res
-//         if (pass === password) {
-//             return
-//         } else { throw 'Incorrect password' }
 
-//     }
-//     else {
-//         throw 'User does not exist'
-//     }
+async function deleteRaw(table, pkName, id) {
+    const sql = `DELETE FROM ${table} 
+    WHERE ${pkName} = ?`;
+    const [res] = await pool.query(sql, [id])
 
-// }
+    return res;
+}
 
 // async function test() {
-//     console.log(await search('posts', 'user_id', 4));
 //     try {
-//         // await userAuthentication("1234", "uri")
+//         console.log(await deleteRaw('comments', 'comments_id', 14));
 //     } catch (error) {
 //         console.log(error);
 //     }
 // }
 // test()
 
-module.exports = { addRow, search }
+module.exports = { addRow, search, deleteRaw }

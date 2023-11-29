@@ -1,6 +1,5 @@
 import { useContext, useState } from "react"
 import { UserContext } from "./MyWeb"
-import toggleDisplay from "../function/toggleDisplay"
 
 function DisplayInfo() {
     const user = useContext(UserContext)

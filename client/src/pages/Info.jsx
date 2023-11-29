@@ -1,5 +1,5 @@
 import usePermission from "../function/usePermission"
-import DisplayInfo from "../component/displayInfo"
+import DisplayInfo from "../component/DisplayInfo"
 import "./css/Info.css"
 import HeaderNav from "../component/Hader"
 
