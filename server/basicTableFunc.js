@@ -42,6 +42,15 @@ async function deleteRaw(table, pkName, id) {
     return res;
 }
 
+async function updateRaw(table, pkName, id, keyChange, valueChange) {
+    const sql = `UPDATE ${table}
+SET ${keyChange} = ${valueChange}
+WHERE ${pkName} = ?`;
+    const [res] = await pool.query(sql, [id])
+
+    return res;
+}
+
 // async function test() {
 //     try {
 //         console.log(await deleteRaw('comments', 'comments_id', 14));
@@ -51,4 +60,4 @@ async function deleteRaw(table, pkName, id) {
 // }
 // test()
 
-module.exports = { addRow, search, deleteRaw }
+module.exports = { addRow, search, deleteRaw,updateRaw }

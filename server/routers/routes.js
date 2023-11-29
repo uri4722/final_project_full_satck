@@ -5,6 +5,7 @@ const getTodos = require('./function/getTodos');
 const getComments = require('./function/getComments');
 const setComments = require('./function/setComments');
 const deleteComments = require('./function/deleteComments');
+const updateTodo = require('./function/updateTodo');
 const router = express.Router();
 
 
@@ -65,16 +66,28 @@ router.post('/comments/postId=:postId', async (req, res) => {
     }
 })
 
-router.delete('/comments/commentId=:commentId', async (req, res) => {
-    const { commentId } = req.params;
+router.put('/todos/todoId=:todoId?', async (req, res) => {
+    const { todoId } = req.params;
+    const { completed } = req.body;
     try {
-        const answer = await deleteComments(commentId);
+        const answer = await updateTodo(todoId, "completed", completed);
         res.status(200).send(answer);
     } catch (error) {
         // console.log(error);
         res.status(400).send(error);
     }
 })
+
+// router.put('/comments/commentId=:commentId', async (req, res) => {
+//     const { commentId } = req.params;
+//     try {
+//         const answer = await deleteComments(commentId);
+//         res.status(200).send(answer);
+//     } catch (error) {
+//         // console.log(error);
+//         res.status(400).send(error);
+//     }
+// })
 
 module.exports = router;
 

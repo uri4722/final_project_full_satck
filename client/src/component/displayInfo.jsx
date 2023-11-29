@@ -1,9 +1,9 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { UserContext } from "./MyWeb"
 
 function DisplayInfo() {
     const user = useContext(UserContext)
-    
+
     const titles = ["User name", 'Email', "Phone", "Full name"];
     const keys = ['user_name', 'email', "phone", "full_name"];
 

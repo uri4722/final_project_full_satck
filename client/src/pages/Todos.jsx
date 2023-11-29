@@ -67,6 +67,7 @@ function Todo() {
             return <DisplayTodos
                 todo={{ ...todo }}
                 key={todo.todo_id}
+                setTodos={setTodos}
             />
 
         })}

@@ -42,6 +42,7 @@ export default function DisplayPosts(props) {
                 return <DisplayComments
                     key={comment.comments_id}
                     comment={comment}
+                    setComments={setComments}
                 />
             })}
 

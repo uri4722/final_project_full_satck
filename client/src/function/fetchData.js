@@ -9,7 +9,6 @@ async function fetchDataGet(sendData, URL) {
         console.log(error);
         console.log(error.response.data);
     }
-
 }
 
 
@@ -27,5 +26,15 @@ export async function fetchDataPost(sendData, URL, body, setMessage) {
         console.error(error);
     }
 
+}
+
+export async function fetchDataDelete(URL) {
+    try {
+        const response = await axios.delete(URL);
+        console.log(response);;
+        return response;
+    } catch (error) {
+        console.log(error);
+    }
 }
 export default fetchDataGet
