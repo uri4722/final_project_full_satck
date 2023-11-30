@@ -1,11 +1,28 @@
 -- פוסטים עבור user_id 1
 INSERT INTO `posts` (`user_id`, `title`, `body`)
-VALUES
-(1, 'Exploring the Wonders of Nature', 'Today I went on a hike and discovered the beauty of nature. The mountains, the rivers, and the lush greenery were breathtaking.'),
-(1, 'The Art of Cooking', 'Sharing my favorite recipe for homemade pizza. It is all about the perfect crust and the freshest ingredients. Bon appétit!'),
-(1, 'Learning a New Language', 'Embarking on a journey to learn a new language. It is challenging but incredibly rewarding. Any tips from fellow language learners?'),
-(1, 'Movie Night Recommendations', 'Looking for movie recommendations for a cozy night in. What are your all-time favorite films?'),
-(1, 'Morning Yoga Routine', 'Starting the day with a refreshing yoga session. It sets the right tone for a positive and productive day.');
+VALUES 
+    (1, "My First Post", "This is my very first post. Excited to start sharing my thoughts!"),
+    (1, "Exploring SQL", "Just started learning SQL and it's fascinating!"),
+    (1, "Favorite Books", "Here are some of my favorite books. What are yours?"),
+    (1, "Tech Trends", "Discussing the latest trends in technology."),
+    (1, "Travel Adventures", "Sharing my travel adventures from around the world."),
+    (1, "Cooking Experiments", "Tried a new recipe today, and it turned out delicious!"),
+    (1, "Movie Night", "Watched an amazing movie last night. Highly recommend it!"),
+    (1, "Fitness Journey", "Documenting my fitness journey. #StayFit"),
+    (1, "Coding Challenges", "Challenging myself with coding problems. #Programming"),
+    (1, "Gaming Highlights", "Highlights from my gaming sessions. #GamingLife"),
+    (1, "Thoughts on AI", "Reflecting on the impact of AI on our lives."),
+    (1, "Hiking Trails", "Exploring beautiful hiking trails. Nature is amazing!"),
+    (1, "Learning a New Language", "Taking on the challenge of learning a new language."),
+    (1, "Book Review", "Just finished reading a fantastic book. Check out my review!"),
+    (1, "Productivity Hacks", "Sharing some productivity hacks that work for me."),
+    (1, "DIY Projects", "Embarking on new DIY projects at home."),
+    (1, "Daily Reflections", "Reflecting on the day and counting my blessings."),
+    (1, "New Music Discovery", "Discovered some great music today. What are you listening to?"),
+    (1, "Photography Journey", "Capturing moments through my lens. #Photography"),
+    (1, "Fitness Goals", "Setting new fitness goals for the month. Let's crush them!"),
+    (1, "Book Recommendations", "Looking for book recommendations. Share your favorites!")
+    ;
 
 -- פוסטים עבור user_id 2
 INSERT INTO `posts` (`user_id`, `title`, `body`)
