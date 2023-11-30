@@ -1,4 +1,6 @@
 import axios from "axios";
+axios.defaults.withCredentials = true;
+
 
 async function fetchDataGet(sendData, URL) {
     try {

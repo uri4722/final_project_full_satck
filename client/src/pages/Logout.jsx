@@ -3,12 +3,14 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../component/MyWeb";
 import usePermission from "../function/usePermission";
 import "./css/Logout.css"
+import Cookies from "js-cookie";
 
 function Logout() {
     usePermission()
     const navigate = useNavigate();
     const user = useContext(UserContext)
     localStorage.clear();
+    Cookies.remove('name', 'password');
 
     setTimeout(() => navigate("/Login"), 3500);
 

@@ -6,6 +6,7 @@ const getComments = require('./function/getComments');
 const setComments = require('./function/setComments');
 const deleteComments = require('./function/deleteComments');
 const updateTodo = require('./function/updateTodo');
+const { userAuth } = require('../basicTableFunc');
 const router = express.Router();
 
 
@@ -21,7 +22,7 @@ router.post('/login', async (req, res) => {
     }
 })
 
-router.get('/posts/userId=:userId', async (req, res) => {
+router.get('/posts/userId=:userId', userAuth, async (req, res) => {
     const { userId } = req.params;
     try {
         const posts = await getPosts(userId);
@@ -32,7 +33,7 @@ router.get('/posts/userId=:userId', async (req, res) => {
     }
 })
 
-router.get('/todos/userId=:userId', async (req, res) => {
+router.get('/todos/userId=:userId', userAuth, async (req, res) => {
     const { userId } = req.params;
     console.log(userId);
     try {
@@ -44,7 +45,7 @@ router.get('/todos/userId=:userId', async (req, res) => {
     }
 })
 
-router.get('/comments/postId=:postId', async (req, res) => {
+router.get('/comments/postId=:postId', userAuth, async (req, res) => {
     const { postId } = req.params;
     try {
         const comments = await getComments(postId);
@@ -55,7 +56,7 @@ router.get('/comments/postId=:postId', async (req, res) => {
     }
 })
 
-router.post('/comments/postId=:postId', async (req, res) => {
+router.post('/comments/postId=:postId', userAuth, async (req, res) => {
     const { body } = req;
     try {
         const comment = await setComments(body);
@@ -66,7 +67,7 @@ router.post('/comments/postId=:postId', async (req, res) => {
     }
 })
 
-router.put('/todos/todoId=:todoId?', async (req, res) => {
+router.put('/todos/todoId=:todoId?', userAuth, async (req, res) => {
     const { todoId } = req.params;
     console.log(todoId);
     try {
@@ -80,7 +81,7 @@ router.put('/todos/todoId=:todoId?', async (req, res) => {
 
 })
 
-router.delete('/comments/commentId=:commentId', async (req, res) => {
+router.delete('/comments/commentId=:commentId', userAuth, async (req, res) => {
     const { commentId } = req.params;
     try {
         const answer = await deleteComments(commentId);

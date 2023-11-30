@@ -1,4 +1,5 @@
 const mysql = require('mysql2/promise');
+
 require('dotenv').config({ path: "C:/Users/user/Desktop/לימודים/final_project_full_satck/server/.env" });
 
 const pool = mysql.createPool({
@@ -51,6 +52,20 @@ WHERE ${pkName} = ?`;
     return res;
 }
 
+async function userAuth(req, res, next) {
+    console.log(req.path);
+    if (req.path === '/login') {
+        next();
+    }
+
+    const { name, password } = req.cookies;
+    const [user] = await search('users', 'user_name', name);
+    if (user && password === user.password) {
+        next();
+    }
+    else res.status(401).send('not allowed');
+}
+
 // async function test() {
 //     try {
 //         console.log(await deleteRaw('comments', 'comments_id', 14));
@@ -60,4 +75,4 @@ WHERE ${pkName} = ?`;
 // }
 // test()
 
-module.exports = { addRow, search, deleteRaw,updateRaw }
+module.exports = { addRow, search, deleteRaw, updateRaw, userAuth }

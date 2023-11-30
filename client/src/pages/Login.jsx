@@ -30,7 +30,11 @@ function Login(props) {
         if (userLogin) {
             console.log(userLogin);
 
-            Cookies.set(logInputs)
+            // Cookies.set("name", logInputs.name, { expires: logInputs.rememberMe ? 7 : 'null' });
+            // Cookies.set("password", logInputs.password, { expires: logInputs.rememberMe ? 7 : 'null', secure: true });
+            Cookies.set("name", logInputs.name, { expires: 7 });
+            Cookies.set("password", logInputs.password, { expires: 7 });
+
             logInputs.rememberMe ?
                 localStorage.setItem("user", JSON.stringify(userLogin)) :
                 sessionStorage.setItem("user", JSON.stringify(userLogin));
